@@ -6,6 +6,19 @@ target/
 *.iws
 *.iml
 *.ipr
+.settings
+.project
+authorization-code/.project
+authorization-code/aiqiyi/.classpath
+authorization-code/aiqiyi/.project
+authorization-code/qq/.classpath
+authorization-code/qq/.project
+client-credentials-springboot2/.classpath
+client-credentials-springboot2/.project
+client-credentials/.classpath
+client-credentials/.project
+
+
 
 ### Docker ###
 data/*
