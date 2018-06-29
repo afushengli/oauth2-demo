@@ -88,7 +88,7 @@ public class OAuth2ServerConfig {
                     .tokenStore(new RedisTokenStore(redisConnectionFactory))
                     .authenticationManager(authenticationManager)
                     .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
-        }*/
+        }*/  
         
         @Override
         public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
