@@ -72,7 +72,7 @@ public class OAuth2ServerConfig {
                     .resourceIds(DEMO_RESOURCE_ID)
                     .authorizedGrantTypes("client_credentials", "refresh_token")
                     .scopes("select")
-                    .authorities("oauth2")
+                    .authorities("client")
                     .secret(finalSecret)
                     .and().withClient("client_2")
                     .resourceIds(DEMO_RESOURCE_ID)
@@ -81,11 +81,20 @@ public class OAuth2ServerConfig {
                     .authorities("oauth2")
                     .secret(finalSecret);
         }
-
+/*
         @Override
         public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
             endpoints
                     .tokenStore(new RedisTokenStore(redisConnectionFactory))
+                    .authenticationManager(authenticationManager)
+                    .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
+        }*/
+        
+        @Override
+        public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
+            endpoints
+                  /*  .tokenStore(new RedisTokenStore(redisConnectionFactory))*/  
+                  //此处是把生成的token保存所在的位置，默认是在内存中，由于本文没有配置redis，所以只能注释掉
                     .authenticationManager(authenticationManager)
                     .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
         }
