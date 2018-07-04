@@ -93,10 +93,11 @@ public class OAuth2ServerConfig {
         @Override
         public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
             endpoints
-                  /*  .tokenStore(new RedisTokenStore(redisConnectionFactory))*/  
+                  /*  .tokenStore(new RedisTokenStore(redisConnectionFactory))*/
                   //此处是把生成的token保存所在的位置，默认是在内存中，由于本文没有配置redis，所以只能注释掉
                     .authenticationManager(authenticationManager)
                     .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
+            endpoints.pathMapping("/oauth/token", "/oauth2/access_token");  //修改默认的获取tocken的地址
         }
 
         @Override
